@@ -13,6 +13,11 @@ files:
   # Angular i18n translation files
   - source: /src/locale/messages.xlf
     translation: /src/locale/messages.%locale%.xlf
+  
+  # API content translations (JSON)
+  - source: /src/assets/i18n/en-US.json
+    translation: /src/assets/i18n/%locale%.json
+    update_option: update_as_unapproved
     
 # Define target languages
 # Common language codes:

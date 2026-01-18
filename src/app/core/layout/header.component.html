@@ -15,6 +15,10 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/register" routerLinkActive="active" i18n="Sign up link@@navSignUp">
           Sign up
+
+          <li class="nav-item">
+            <app-language-switcher></app-language-switcher>
+          </li>
         </a>
       </li>
     </ul>
@@ -47,6 +51,9 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <app-language-switcher></app-language-switcher>
+      </li>
       @if (currentUser$ | async; as currentUser) {
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/profile', currentUser.username]" routerLinkActive="active">

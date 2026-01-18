@@ -1,0 +1,28 @@
+{
+  "api": {
+    "articles": {
+      "how-to-train-your-dragon": {
+        "title": "Cómo entrenar a tu dragón",
+        "description": "¿Alguna vez te has preguntado cómo?",
+        "body": "Se necesita un Jacobiano"
+      },
+      "introduction-to-angular": {
+        "title": "Introducción a Angular",
+        "description": "Aprende los conceptos básicos de Angular",
+        "body": "Angular es una plataforma y marco de trabajo para construir aplicaciones de cliente de una sola página utilizando HTML y TypeScript."
+      }
+    },
+    "tags": {
+      "angular": "Angular",
+      "react": "React",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "dragons": "Dragones",
+      "training": "Entrenamiento"
+    }
+  },
+  "ui": {
+    "language": "Idioma",
+    "selectLanguage": "Seleccionar idioma"
+  }
+}

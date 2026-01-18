@@ -20,6 +20,7 @@ import { Profile } from '../../../profile/models/profile.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FavoriteButtonComponent } from '../../components/favorite-button.component';
 import { FollowButtonComponent } from '../../../profile/components/follow-button.component';
+import { TranslationService } from '../../../../core/services/translation.service';
 
 @Component({
   selector: 'app-article-page',
@@ -41,8 +42,10 @@ import { FollowButtonComponent } from '../../../profile/components/follow-button
 })
 export default class ArticleComponent implements OnInit {
   article!: Article;
+  originalArticle!: Article; // Store original untranslated article
   currentUser!: User | null;
   comments: Comment[] = [];
+  originalComments: Comment[] = []; // Store original untranslated comments
   canModify: boolean = false;
 
   commentControl = new FormControl<string>('', { nonNullable: true });
@@ -58,10 +61,22 @@ export default class ArticleComponent implements OnInit {
     private readonly commentsService: CommentsService,
     private readonly router: Router,
     private readonly userService: UserService,
+    private readonly translationService: TranslationService,
   ) {}
 
   ngOnInit(): void {
     const slug = this.route.snapshot.params['slug'];
+
+    // Listen for locale changes and re-translate article and comments
+    this.translationService.localeChange$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      if (this.originalArticle) {
+        this.article = this.translationService.translateArticle(this.originalArticle);
+      }
+      if (this.originalComments.length > 0) {
+        this.comments = [...this.translationService.translateComments(this.originalComments, slug)];
+      }
+    });
+
     combineLatest([this.articleService.get(slug), this.commentsService.getAll(slug), this.userService.currentUser])
       .pipe(
         catchError(err => {
@@ -71,8 +86,12 @@ export default class ArticleComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe(([article, comments, currentUser]) => {
-        this.article = article;
-        this.comments = comments;
+        // Store original untranslated data
+        this.originalArticle = article;
+        this.originalComments = comments;
+        // Translate and display
+        this.article = this.translationService.translateArticle(article);
+        this.comments = this.translationService.translateComments(comments, slug);
         this.currentUser = currentUser;
         this.canModify = currentUser?.username === article.author.username;
       });
@@ -112,7 +131,10 @@ export default class ArticleComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: comment => {
-          this.comments.unshift(comment);
+          // Add to original comments
+          this.originalComments.unshift(comment);
+          // Translate and add to displayed comments
+          this.comments.unshift(this.translationService.translateComment(comment, this.article.slug));
           this.commentControl.reset('');
           this.isSubmitting = false;
         },
@@ -128,7 +150,9 @@ export default class ArticleComponent implements OnInit {
       .delete(comment.id, this.article.slug)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        this.comments = this.comments.filter(item => item !== comment);
+        // Remove from both original and displayed comments
+        this.originalComments = this.originalComments.filter(item => item.id !== comment.id);
+        this.comments = this.comments.filter(item => item.id !== comment.id);
       });
   }
 }

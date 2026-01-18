@@ -1,0 +1,67 @@
+{
+  "api": {
+    "articles": {
+      "how-to-learn-javascript-efficiently": {
+        "title": "Como Aprender JavaScript Eficientemente",
+        "description": "Um guia abrangente para dominar JavaScript do iniciante ao nível avançado",
+        "body": "Aprender JavaScript pode ser esmagador com tantos recursos disponíveis. Aqui está uma abordagem estruturada que ajudou milhares de desenvolvedores a dominar esta linguagem essencial.\n\n## Comece com os Fundamentos\n\nAntes de mergulhar em frameworks, domine os conceitos principais: variáveis, funções, objetos e arrays. Compreender estes blocos de construção é crucial para escrever código limpo e sustentável.\n\n## Pratique com Projetos Reais\n\nA melhor maneira de aprender é construindo aplicações reais. Comece com projetos simples como uma lista de tarefas ou calculadora, depois aumente gradualmente a complexidade.\n\n## Junte-se à Comunidade\n\nEnvolva-se com outros desenvolvedores através de fóruns, servidores Discord e encontros locais. A comunidade JavaScript é incrivelmente acolhedora e prestativa."
+      },
+      "react-hooks-best-practices": {
+        "title": "React Hooks: Melhores Práticas e Armadilhas Comuns",
+        "description": "Padrões essenciais e anti-padrões ao trabalhar com React Hooks",
+        "body": "React Hooks revolucionaram a forma como escrevemos componentes React, mas vêm com o seu próprio conjunto de melhores práticas e potenciais armadilhas.\n\n## Dependências do useEffect\n\nUm dos erros mais comuns é esquecer de incluir dependências no array do useEffect. Isto pode levar a closures obsoletos e comportamento inesperado.\n\n## Hooks Personalizados para Reutilização\n\nCrie hooks personalizados para encapsular lógica com estado que pode ser partilhada entre componentes. Isto promove a reutilização e manutenibilidade do código.\n\n## Considerações de Performance\n\nUse useMemo e useCallback criteriosamente. Não otimize prematuramente, mas esteja ciente de quando estes hooks podem ajudar a prevenir renderizações desnecessárias."
+      },
+      "building-scalable-apis-with-node-js": {
+        "title": "Construindo APIs Escaláveis com Node.js",
+        "description": "Padrões arquiteturais e melhores práticas para criar serviços de backend robustos",
+        "body": "Construir APIs escaláveis requer consideração cuidadosa de arquitetura, tratamento de erros e otimização de performance.\n\n## Princípios de Design de API\n\nSiga convenções RESTful e use códigos de status HTTP apropriados. Projete sua API para ser intuitiva e auto-documentada.\n\n## Estratégia de Tratamento de Erros\n\nImplemente tratamento de erros abrangente com logging e monitoramento adequados. Use middleware para lidar com erros consistentemente em toda a sua aplicação.\n\n## Otimização de Base de Dados\n\nOtimize consultas de base de dados e considere implementar estratégias de cache para dados frequentemente acedidos. Connection pooling é essencial para aplicações em produção."
+      },
+      "introduction-to-machine-learning-for-developers": {
+        "title": "Introdução ao Machine Learning para Desenvolvedores",
+        "description": "Começando com conceitos de ML e aplicações práticas para desenvolvedores de software",
+        "body": "Machine learning pode parecer intimidante, mas é mais acessível do que nunca para desenvolvedores que procuram expandir as suas competências.\n\n## Compreendendo o Básico\n\nComece com conceitos de aprendizagem supervisionada como classificação e regressão. Estes formam a fundação para algoritmos de ML mais complexos.\n\n## Ferramentas e Bibliotecas Práticas\n\nO scikit-learn do Python é perfeito para iniciantes, enquanto TensorFlow e PyTorch oferecem capacidades mais avançadas para projetos de deep learning.\n\n## Pré-processamento de Dados\n\nA maioria do trabalho de ML envolve limpar e preparar dados. Aprenda a lidar com valores ausentes, normalizar características e dividir conjuntos de dados adequadamente."
+      }
+    },
+    "tags": {
+      "beginners": "Iniciantes",
+      "javascript": "JavaScript",
+      "programming": "Programação",
+      "webdev": "Desenvolvimento Web",
+      "frontend": "Frontend",
+      "hooks": "Hooks",
+      "react": "React",
+      "backend": "Backend",
+      "nodejs": "Node.js",
+      "api": "API",
+      "architecture": "Arquitetura",
+      "ai": "IA",
+      "datascience": "Ciência de Dados",
+      "machinelearning": "Aprendizado de Máquina",
+      "python": "Python",
+      "angular": "Angular",
+      "typescript": "TypeScript"
+    },
+    "comments": {
+      "how-to-learn-javascript-efficiently": {
+        "great-article--i-ve-been-struggling-with-javascrip": "Ótimo artigo! Tenho lutado com conceitos de JavaScript e isto realmente ajuda a esclarecer as coisas.",
+        "the-project-based-approach-really-works--i-built-t": "A abordagem baseada em projetos realmente funciona. Construí três projetos seguindo este guia e aprendi muito!"
+      },
+      "react-hooks-best-practices": {
+        "useeffect-dependencies-caught-me-so-many-times-whe": "As dependências do useEffect me pegaram tantas vezes quando estava aprendendo React. Queria ter lido isso antes!",
+        "custom-hooks-are-a-game-changer--they-make-compone": "Hooks personalizados são revolucionários. Eles tornam os componentes muito mais limpos e reutilizáveis."
+      },
+      "building-scalable-apis-with-node-js": {
+        "great-architecture-tips-for-scalable-apis": "Ótimas dicas de arquitetura para APIs escaláveis.",
+        "will-apply-these-patterns-in-my-next-project": "Vou aplicar estes padrões no meu próximo projeto."
+      },
+      "introduction-to-machine-learning-for-developers": {
+        "finally-a-clear-introduction-to-ml-for-developers": "Finalmente uma introdução clara ao ML para desenvolvedores!",
+        "very-helpful-for-getting-started-with-machine-lear": "Muito útil para começar com machine learning."
+      }
+    }
+  },
+  "ui": {
+    "language": "Idioma",
+    "selectLanguage": "Selecionar idioma"
+  }
+}

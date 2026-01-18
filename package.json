@@ -25,9 +25,11 @@
     "format:check": "prettier --check \"**/*.{ts,html,css,json,md}\"",
     "prepare": "husky install",
     "i18n:extract": "ng extract-i18n --output-path src/locale",
+    "extract-api-content": "ts-node scripts/extract-api-content.ts",
     "crowdin:upload": "crowdin upload sources",
     "crowdin:download": "crowdin download",
-    "crowdin:sync": "npm run i18n:extract && npm run crowdin:upload && npm run crowdin:download"
+    "crowdin:sync": "npm run i18n:extract && npm run crowdin:upload && npm run crowdin:download",
+    "translate:update": "npm run extract-api-content && npm run crowdin:upload"
   },
   "engines": {
     "node": ">=20.11.1"
@@ -58,12 +60,14 @@
     "@crowdin/cli": "^4.12.0",
     "@playwright/test": "^1.56.1",
     "@types/marked": "^6.0.0",
+    "@types/node": "^25.0.9",
     "@vitest/ui": "^3.2.4",
     "husky": "^8.0.3",
     "jsdom": "^27.1.0",
     "lint-staged": "^16.1.2",
     "playwright": "^1.56.1",
     "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
     "typescript": "~5.9.3",
     "vitest": "^3.2.4"
   },

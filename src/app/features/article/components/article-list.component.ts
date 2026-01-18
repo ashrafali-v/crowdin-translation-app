@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, Input } from '@angular/core';
+import { Component, DestroyRef, inject, Input, OnInit } from '@angular/core';
 import { ArticlesService } from '../services/articles.service';
 import { ArticleListConfig } from '../models/article-list-config.model';
 import { Article } from '../models/article.model';
@@ -6,6 +6,7 @@ import { ArticlePreviewComponent } from './article-preview.component';
 import { NgClass } from '@angular/common';
 import { LoadingState } from '../../../core/models/loading-state.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-article-list',
@@ -41,7 +42,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     }
   `,
 })
-export class ArticleListComponent {
+export class ArticleListComponent implements OnInit {
   query!: ArticleListConfig;
   results: Article[] = [];
   currentPage = 1;
@@ -49,6 +50,7 @@ export class ArticleListComponent {
   loading = LoadingState.NOT_LOADED;
   LoadingState = LoadingState;
   destroyRef = inject(DestroyRef);
+  private originalResults: Article[] = [];
 
   @Input() limit!: number;
   @Input()
@@ -60,7 +62,20 @@ export class ArticleListComponent {
     }
   }
 
-  constructor(private articlesService: ArticlesService) {}
+  constructor(
+    private articlesService: ArticlesService,
+    private translationService: TranslationService,
+  ) {}
+
+  ngOnInit() {
+    // Listen for locale changes and re-translate articles
+    this.translationService.localeChange$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      if (this.originalResults.length > 0) {
+        // Create a new array reference to trigger change detection
+        this.results = [...this.translationService.translateArticles(this.originalResults)];
+      }
+    });
+  }
 
   setPageTo(pageNumber: number) {
     this.currentPage = pageNumber;
@@ -82,7 +97,10 @@ export class ArticleListComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(data => {
         this.loading = LoadingState.LOADED;
-        this.results = data.articles;
+        // Store original untranslated results
+        this.originalResults = data.articles;
+        // Translate and display with new array reference
+        this.results = [...this.translationService.translateArticles(data.articles)];
 
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
