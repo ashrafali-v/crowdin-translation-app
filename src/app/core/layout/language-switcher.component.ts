@@ -11,7 +11,7 @@ import { TranslationService } from '../services/translation.service';
       <button
         class="btn btn-sm btn-outline-secondary dropdown-toggle"
         type="button"
-        (click)="toggleDropdown()"
+        (click)="toggleDropdown($event)"
         [attr.aria-expanded]="isOpen"
       >
         {{ getCurrentLanguageName() }}
@@ -22,7 +22,7 @@ import { TranslationService } from '../services/translation.service';
             class="dropdown-item"
             type="button"
             [class.active]="lang.code === translationService.getCurrentLocale()"
-            (click)="selectLanguage(lang.code)"
+            (click)="selectLanguage(lang.code, $event)"
           >
             {{ lang.name }}
           </button>
@@ -106,11 +106,15 @@ export class LanguageSwitcherComponent {
 
   constructor(public translationService: TranslationService) {}
 
-  toggleDropdown() {
+  toggleDropdown(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
     this.isOpen = !this.isOpen;
   }
 
-  selectLanguage(locale: string) {
+  selectLanguage(locale: string, event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
     this.translationService.setLocale(locale);
     this.isOpen = false;
   }
