@@ -175,6 +175,65 @@ npm run extract-api-content
 
 This creates/updates `src/assets/i18n/en-US.json`.
 
+#### What This Script Does (Step-by-Step Breakdown):
+
+1. **Makes HTTP Request to API**
+
+   ```typescript
+   fetch('https://api.realworld.io/api/articles?limit=10');
+   ```
+
+   - Fetches the first 10 articles from the RealWorld API
+   - This is a **one-time manual fetch** when YOU run the script
+
+2. **Extracts Article Content**
+
+   ```typescript
+   translations.api.articles[article.slug] = {
+     title: article.title,
+     description: article.description,
+     body: article.body,
+   };
+   ```
+
+   - Takes the article data from the API response
+   - Structures it into translation format using article slug as key
+
+3. **Extracts Tags**
+
+   ```typescript
+   article.tagList.forEach(tag => {
+     translations.api.tags[tag] = tag;
+   });
+   ```
+
+   - Collects all unique tags from articles
+   - Creates translation entries for each tag
+
+4. **Fetches Comments for Each Article**
+
+   ```typescript
+   fetch(`https://api.realworld.io/api/articles/${article.slug}/comments`);
+   ```
+
+   - For each article, makes another API call to get its comments
+   - Generates keys from first 50 characters of comment body text
+
+5. **Saves to JSON File**
+   ```typescript
+   fs.writeFileSync('src/assets/i18n/en-US.json', JSON.stringify(translations));
+   ```
+
+   - Writes everything to `src/assets/i18n/en-US.json`
+   - This file becomes your **source of truth** for translations
+
+**Important Notes:**
+
+- ❌ This script does NOT run automatically when users browse the app
+- ❌ Does NOT fetch translations at runtime
+- ✅ Only runs when YOU manually execute it
+- ✅ Creates static translation files used at runtime
+
 ### Step 2: Manually Create Target Language Files
 
 Copy `en-US.json` to `pt-PT.json` and translate the values:
