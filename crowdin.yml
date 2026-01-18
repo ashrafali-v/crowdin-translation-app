@@ -1,0 +1,41 @@
+# Crowdin Configuration File
+# Get your Project ID from https://crowdin.com/project/YOUR_PROJECT/settings#api
+project_id: 862286
+
+# Personal Access Token - Generate at https://crowdin.com/settings#api-key
+api_token_env: CROWDIN_PERSONAL_TOKEN
+
+# Preserve hierarchy for your source files
+preserve_hierarchy: true
+
+# Source files configuration
+files:
+  # Angular i18n translation files
+  - source: /src/locale/messages.xlf
+    translation: /src/locale/messages.%locale%.xlf
+    
+# Define target languages
+# Common language codes:
+# es - Spanish
+# fr - French  
+# de - German
+# it - Italian
+# pt - Portuguese
+# ru - Russian
+# ja - Japanese
+# zh-CN - Chinese Simplified
+# zh-TW - Chinese Traditional
+# ko - Korean
+# ar - Arabic
+# nl - Dutch
+# pl - Polish
+# tr - Turkish
+# sv - Swedish
+# da - Danish
+# no - Norwegian
+# fi - Finnish
+
+# Target languages for translation
+languages:
+  - pt      # Portuguese
+  - ml      # Malayalam

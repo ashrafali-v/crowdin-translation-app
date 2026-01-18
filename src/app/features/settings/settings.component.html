@@ -1,0 +1,77 @@
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center" i18n="Settings heading@@settingsHeading">Your Settings</h1>
+
+        <app-list-errors [errors]="errors" />
+
+        <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+          <fieldset [disabled]="isSubmitting">
+            <fieldset class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="URL of profile picture"
+                i18n-placeholder="Profile picture placeholder@@profilePicture"
+                formControlName="image"
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Username"
+                i18n-placeholder="Username placeholder@@usernamePlaceholder"
+                formControlName="username"
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea
+                class="form-control form-control-lg"
+                rows="8"
+                placeholder="Short bio about you"
+                i18n-placeholder="Bio placeholder@@bioPlaceholder"
+                formControlName="bio"
+              >
+              </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input
+                class="form-control form-control-lg"
+                type="email"
+                placeholder="Email"
+                i18n-placeholder="Email placeholder@@emailPlaceholder"
+                formControlName="email"
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input
+                class="form-control form-control-lg"
+                type="password"
+                placeholder="New Password"
+                i18n-placeholder="New password placeholder@@newPasswordPlaceholder"
+                formControlName="password"
+              />
+            </fieldset>
+
+            <button class="btn btn-lg btn-primary pull-xs-right" type="submit" i18n="Update button@@updateSettings">
+              Update Settings
+            </button>
+          </fieldset>
+        </form>
+
+        <!-- Line break for logout button -->
+        <hr />
+
+        <button class="btn btn-outline-danger" (click)="logout()" i18n="Logout button@@logoutButton">
+          Or click here to logout.
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

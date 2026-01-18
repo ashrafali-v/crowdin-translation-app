@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="pt-PT">
+    <body>
+      <trans-unit id="haveAccount" datatype="html">
+        <source>Have an account?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/auth/auth.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+        <note priority="1" from="description">Have account link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Já tem uma conta?</target>
+      </trans-unit>
+      <trans-unit id="needAccount" datatype="html">
+        <source>Need an account?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/auth/auth.component.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+        <note priority="1" from="description">Need account link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Precisa de uma conta?</target>
+      </trans-unit>
+      <trans-unit id="usernamePlaceholder" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/auth/auth.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <note priority="1" from="description">Username placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Usuário:</target>
+      </trans-unit>
+      <trans-unit id="emailPlaceholder" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/auth/auth.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Email placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">e-mail</target>
+      </trans-unit>
+      <trans-unit id="passwordPlaceholder" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/auth/auth.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <note priority="1" from="description">Password placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Palavra-passe</target>
+      </trans-unit>
+      <trans-unit id="footerAttribution" datatype="html">
+        <source> © <x id="INTERPOLATION" equiv-text="{{ today | date: &apos;yyyy&apos; }}"/>. An interactive learning project from <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/gothinkster/realworld&quot;&gt;"/>RealWorld OSS Project<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. Code licensed under MIT. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/footer.component.html</context>
+          <context context-type="linenumber">5,8</context>
+        </context-group>
+        <note priority="1" from="description">Footer attribution</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> ©️ <x id="INTERPOLATION" equiv-text="{{ today | date: 'yyyy' }}"/>. Um projeto de aprendizagem interativo do projeto <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/gothinkster/realworld&quot;&gt;"/>RealWorld OSS<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. Código licenciado sob MIT. </target>
+      </trans-unit>
+      <trans-unit id="navHome" datatype="html">
+        <source> Home </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+        <note priority="1" from="description">Home link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Residencial </target>
+      </trans-unit>
+      <trans-unit id="navSignIn" datatype="html">
+        <source> Sign in </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+        <note priority="1" from="description">Sign in link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Iniciar sessão </target>
+      </trans-unit>
+      <trans-unit id="navSignUp" datatype="html">
+        <source> Sign up </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">16,20</context>
+        </context-group>
+        <note priority="1" from="description">Sign up link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Criar conta </target>
+      </trans-unit>
+      <trans-unit id="navNewArticle" datatype="html">
+        <source>New Article</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">30,34</context>
+        </context-group>
+        <note priority="1" from="description">New article link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Novo artigo</target>
+      </trans-unit>
+      <trans-unit id="navSettings" datatype="html">
+        <source>Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+        <note priority="1" from="description">Settings link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Confirgurações</target>
+      </trans-unit>
+      <trans-unit id="navUserProfile" datatype="html">
+        <source>@<x id="INTERPOLATION" equiv-text="{{ currentUser.username }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+        <note priority="1" from="description">User profile link</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">@<x id="INTERPOLATION" equiv-text="{{ currentUser.username }}"/></target>
+      </trans-unit>
+      <trans-unit id="editArticle" datatype="html">
+        <source>Edit Article</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">11,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">58,61</context>
+        </context-group>
+        <note priority="1" from="description">Edit button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Editar Artigo</target>
+      </trans-unit>
+      <trans-unit id="deleteArticle" datatype="html">
+        <source>Delete Article</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">66,68</context>
+        </context-group>
+        <note priority="1" from="description">Delete button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Excluir Artigo</target>
+      </trans-unit>
+      <trans-unit id="favoriteArticle" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ article.favorited ? &apos;Unfavorite&apos; : &apos;Favorite&apos; }}"/> Article</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <note priority="1" from="description">Favorite toggle</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Artigoformat@@0 <x id="INTERPOLATION" equiv-text="{{ article.favorited ? 'Unfavorite' : 'Favorite' }}"/></target>
+      </trans-unit>
+      <trans-unit id="commentPlaceholder" datatype="html">
+        <source>Write a comment...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">91,92</context>
+        </context-group>
+        <note priority="1" from="description">Comment placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Escreva um comentário...</target>
+      </trans-unit>
+      <trans-unit id="postComment" datatype="html">
+        <source>Post Comment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">99,101</context>
+        </context-group>
+        <note priority="1" from="description">Post comment button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Publicar Comentário</target>
+      </trans-unit>
+      <trans-unit id="signInToComment" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;[&apos;/login&apos;]&quot;&gt;"/>Sign in<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> or <x id="START_LINK_1" equiv-text="&lt;a [routerLink]=&quot;[&apos;/register&apos;]&quot;&gt;"/>sign up<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to add comments on this article. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/article/article.component.html</context>
+          <context context-type="linenumber">106,108</context>
+        </context-group>
+        <note priority="1" from="description">Comment auth prompt</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"><x id="START_LINK" ctype="x-a" equiv-text="&lt;a [routerLink]=&quot;['/login']&quot;&gt;"/>Cadastre-se em<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> ou <x id="START_LINK_1" equiv-text="&lt;a [routerLink]=&quot;['/register']&quot;&gt;"/>inscreva-se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> para adicionar comentários sobre este artigo. </target>
+      </trans-unit>
+      <trans-unit id="articleTitle" datatype="html">
+        <source>Article Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/editor/editor.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <note priority="1" from="description">Article title placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Título do artigo</target>
+      </trans-unit>
+      <trans-unit id="articleDescription" datatype="html">
+        <source>What&apos;s this article about?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/editor/editor.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <note priority="1" from="description">Article description placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Sobre o que é esse artigo?</target>
+      </trans-unit>
+      <trans-unit id="articleBody" datatype="html">
+        <source>Write your article (in markdown)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/editor/editor.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+        <note priority="1" from="description">Article body placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Escreva seu artigo (em markdown)</target>
+      </trans-unit>
+      <trans-unit id="articleTags" datatype="html">
+        <source>Enter tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/editor/editor.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+        <note priority="1" from="description">Tags placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Insira tags</target>
+      </trans-unit>
+      <trans-unit id="publishArticle" datatype="html">
+        <source> Publish Article </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/editor/editor.component.html</context>
+          <context context-type="linenumber">60,62</context>
+        </context-group>
+        <note priority="1" from="description">Publish button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Publicar Artigo </target>
+      </trans-unit>
+      <trans-unit id="homeTagline" datatype="html">
+        <source>A place to share your <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Angular<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> knowledge.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+        <note priority="1" from="description">Home page tagline</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Um lugar para compartilhar seu conhecimento <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Angular<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>.</target>
+      </trans-unit>
+      <trans-unit id="feedTab" datatype="html">
+        <source> Your Feed </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <note priority="1" from="description">Feed tab</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Seu Feed </target>
+      </trans-unit>
+      <trans-unit id="globalFeedTab" datatype="html">
+        <source> Global Feed </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+        <note priority="1" from="description">Global feed tab</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Feed global </target>
+      </trans-unit>
+      <trans-unit id="popularTags" datatype="html">
+        <source>Popular Tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">42,45</context>
+        </context-group>
+        <note priority="1" from="description">Sidebar heading</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Marcadores Populares</target>
+      </trans-unit>
+      <trans-unit id="loadingTags" datatype="html">
+        <source>Loading tags...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+        <note priority="1" from="description">Loading state</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Carregando tags...</target>
+      </trans-unit>
+      <trans-unit id="noTags" datatype="html">
+        <source>No tags are here... yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/article/pages/home/home.component.html</context>
+          <context context-type="linenumber">54,56</context>
+        </context-group>
+        <note priority="1" from="description">Empty state</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Nenhuma tag está aqui... ainda.</target>
+      </trans-unit>
+      <trans-unit id="editProfile" datatype="html">
+        <source>Edit Profile Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="description">Edit profile button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Editar Configurações de Perfil</target>
+      </trans-unit>
+      <trans-unit id="myPosts" datatype="html">
+        <source> My Posts </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+        <note priority="1" from="description">My posts tab</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Minhas Postagens </target>
+      </trans-unit>
+      <trans-unit id="favoritedPosts" datatype="html">
+        <source> Favorited Posts </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/profile/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+        <note priority="1" from="description">Favorited posts tab</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt"> Postagens favoritas </target>
+      </trans-unit>
+      <trans-unit id="settingsHeading" datatype="html">
+        <source>Your Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+        <note priority="1" from="description">Settings heading</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Suas configurações</target>
+      </trans-unit>
+      <trans-unit id="profilePicture" datatype="html">
+        <source>URL of profile picture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Profile picture placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">URL da foto do perfil</target>
+      </trans-unit>
+      <trans-unit id="bioPlaceholder" datatype="html">
+        <source>Short bio about you</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+        <note priority="1" from="description">Bio placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Breve biografia sobre você</target>
+      </trans-unit>
+      <trans-unit id="newPasswordPlaceholder" datatype="html">
+        <source>New Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+        <note priority="1" from="description">New password placeholder</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Nova Palavra-Passe</target>
+      </trans-unit>
+      <trans-unit id="updateSettings" datatype="html">
+        <source>Update Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+        <note priority="1" from="description">Update button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Configurações de atualização</target>
+      </trans-unit>
+      <trans-unit id="logoutButton" datatype="html">
+        <source>Or click here to logout.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/settings/settings.component.html</context>
+          <context context-type="linenumber">57,60</context>
+        </context-group>
+        <note priority="1" from="description">Logout button</note>
+        <target state="needs-review-translation" state-qualifier="leveraged-mt">Ou clique aqui para sair.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

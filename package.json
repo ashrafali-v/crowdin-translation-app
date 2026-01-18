@@ -1,0 +1,73 @@
+{
+  "name": "angular-realworld",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:ml": "ng serve --configuration=ml-IN",
+    "start:pt": "ng serve --configuration=pt-PT",
+    "start:es": "ng serve --configuration=es-ES",
+    "build": "ng build",
+    "build:ml": "ng build --localize --configuration=production,ml-IN",
+    "build:pt": "ng build --localize --configuration=production,pt-PT",
+    "build:es": "ng build --localize --configuration=production,es-ES",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:report": "playwright show-report",
+    "test:e2e:disabled": "cat e2e/DISABLED_TESTS.md",
+    "format": "prettier --write \"**/*.{ts,html,css,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,html,css,json,md}\"",
+    "prepare": "husky install",
+    "i18n:extract": "ng extract-i18n --output-path src/locale",
+    "crowdin:upload": "crowdin upload sources",
+    "crowdin:download": "crowdin download",
+    "crowdin:sync": "npm run i18n:extract && npm run crowdin:upload && npm run crowdin:download"
+  },
+  "engines": {
+    "node": ">=20.11.1"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "20.3.9",
+    "@angular/common": "20.3.9",
+    "@angular/compiler": "20.3.9",
+    "@angular/core": "20.3.9",
+    "@angular/forms": "20.3.9",
+    "@angular/platform-browser": "20.3.9",
+    "@angular/platform-browser-dynamic": "20.3.9",
+    "@angular/router": "20.3.9",
+    "@rx-angular/cdk": "20.0.0",
+    "@rx-angular/template": "20.0.0",
+    "marked": "^16.4.1",
+    "rxjs": "^7.4.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.1"
+  },
+  "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^1.22.4",
+    "@angular/build": "20.3.9",
+    "@angular/cli": "20.3.9",
+    "@angular/compiler-cli": "20.3.9",
+    "@angular/localize": "^20.3.9",
+    "@crowdin/cli": "^4.12.0",
+    "@playwright/test": "^1.56.1",
+    "@types/marked": "^6.0.0",
+    "@vitest/ui": "^3.2.4",
+    "husky": "^8.0.3",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.1.2",
+    "playwright": "^1.56.1",
+    "prettier": "^3.1.1",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{ts,html,css,json,md}": "prettier --write"
+  }
+}
