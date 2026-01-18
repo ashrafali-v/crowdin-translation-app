@@ -23,21 +23,23 @@
       }
     },
     "tags": {
-      "beginners": "beginners",
-      "javascript": "javascript",
-      "programming": "programming",
-      "webdev": "webdev",
-      "frontend": "frontend",
-      "hooks": "hooks",
-      "react": "react",
-      "api": "api",
-      "architecture": "architecture",
-      "backend": "backend",
-      "nodejs": "nodejs",
-      "ai": "ai",
-      "datascience": "datascience",
-      "machinelearning": "machinelearning",
-      "python": "python"
+      "beginners": "Beginners",
+      "javascript": "JavaScript",
+      "programming": "Programming",
+      "webdev": "Web Development",
+      "frontend": "Frontend",
+      "hooks": "Hooks",
+      "react": "React",
+      "backend": "Backend",
+      "nodejs": "Node.js",
+      "api": "API",
+      "architecture": "Architecture",
+      "ai": "AI",
+      "datascience": "Data Science",
+      "machinelearning": "Machine Learning",
+      "python": "Python",
+      "angular": "Angular",
+      "typescript": "TypeScript"
     },
     "comments": {
       "how-to-learn-javascript-efficiently": {
@@ -49,12 +51,12 @@
         "custom-hooks-are-a-game-changer--they-make-compone": "Custom hooks are a game-changer. They make components so much cleaner and more reusable."
       },
       "building-scalable-apis-with-node-js": {
-        "error-handling-is-definitely-something-i-need-to-i": "Error handling is definitely something I need to improve on. Thanks for the practical tips!",
-        "connection-pooling-made-such-a-difference-in-my-ap": "Connection pooling made such a difference in my API performance. Great advice!"
+        "great-architecture-tips-for-scalable-apis": "Great architecture tips for scalable APIs.",
+        "will-apply-these-patterns-in-my-next-project": "Will apply these patterns in my next project."
       },
       "introduction-to-machine-learning-for-developers": {
-        "as-someone-new-to-ml--this-is-exactly-the-kind-of": "As someone new to ML, this is exactly the kind of practical introduction I was looking for.",
-        "the-data-preprocessing-section-is-spot-on--it-s-de": "The data preprocessing section is spot on. It's definitely where most of the work happens in ML projects."
+        "finally-a-clear-introduction-to-ml-for-developers": "Finally a clear introduction to ML for developers!",
+        "very-helpful-for-getting-started-with-machine-lear": "Very helpful for getting started with machine learning."
       }
     }
   },

@@ -7,20 +7,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 /**
- * Script to create base translation files for Crowdin
+ * Script to extract API content for translation files
+ *
+ * ⚠️  IMPORTANT: Only run this when API content has changed!
+ *
+ * This script will:
+ * 1. Fetch articles from the RealWorld API
+ * 2. Fetch comments for each article
+ * 3. Generate translation keys for comments
+ * 4. Create/update src/assets/i18n/en-US.json
  *
  * Usage:
- * 1. Add your article slugs and content to the articles array below
- * 2. Add comments for each article slug
- * 3. Run this script: npm run extract-api-content
+ * 1. Run this script: npm run extract-api-content
+ * 2. Review the generated en-US.json file
+ * 3. Copy to pt-PT.json and translate, OR upload to Crowdin
  * 4. Upload to Crowdin: npm run crowdin:upload
- * 5. Translate in Crowdin
+ * 5. Translate in Crowdin dashboard
  * 6. Download translations: npm run crowdin:download
- *
- * Note: When you have actual API responses, add them to the articles array
- * For comments: Use generic comment IDs (comment-1, comment-2, etc.) since
- * actual comment IDs from API are dynamic. Translation will fall back to
- * original text if no translation exists.
  */
 
 interface Article {
@@ -31,32 +34,56 @@ interface Article {
   tagList: string[];
 }
 
-// Add your article content here
-// You can copy this from your actual API responses when they're available
-const articles: Article[] = [
-  {
-    slug: 'how-to-train-your-dragon',
-    title: 'How to train your dragon',
-    description: 'Ever wonder how?',
-    body: 'It takes a Jacobian',
-    tagList: ['dragons', 'training'],
-  },
-  {
-    slug: 'introduction-to-angular',
-    title: 'Introduction to Angular',
-    description: 'Learn Angular basics',
-    body: 'Angular is a platform and framework for building single-page client applications using HTML and TypeScript.',
-    tagList: ['angular', 'javascript', 'typescript'],
-  },
-  // Add more articles here as needed
-];
+interface Comment {
+  id: number;
+  body: string;
+  createdAt: string;
+  author: any;
+}
+
+interface Comment {
+  id: number;
+  body: string;
+  createdAt: string;
+  author: any;
+}
+
+// Fetch articles from API
+async function fetchArticles(): Promise<Article[]> {
+  console.log('📡 Fetching articles from API...');
+  const response = await fetch('https://api.realworld.show/api/articles?limit=20');
+  const data = (await response.json()) as { articles: Article[] };
+  return data.articles || [];
+}
+
+// Fetch comments for an article
+async function fetchComments(slug: string): Promise<Comment[]> {
+  try {
+    const response = await fetch(`https://api.realworld.show/api/articles/${slug}/comments`);
+    const data = (await response.json()) as { comments: Comment[] };
+    return data.comments || [];
+  } catch (error) {
+    console.log(`  ⚠️  No comments found for ${slug}`);
+    return [];
+  }
+}
+
+// Generate comment key (same as translation service)
+function generateCommentKey(body: string): string {
+  return body
+    .substring(0, 50)
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+$/, '');
+}
 
 // Create translation structure
-function createTranslationFile(articles: Article[]) {
+async function createTranslationFile(articles: Article[]) {
   const translations: any = {
     api: {
       articles: {},
       tags: {},
+      comments: {},
     },
     ui: {
       language: 'Language',
@@ -65,7 +92,7 @@ function createTranslationFile(articles: Article[]) {
   };
 
   // Extract article content
-  articles.forEach(article => {
+  for (const article of articles) {
     translations.api.articles[article.slug] = {
       title: article.title,
       description: article.description,
@@ -73,12 +100,26 @@ function createTranslationFile(articles: Article[]) {
     };
 
     // Extract unique tags
-    article.tagList?.forEach(tag => {
+    article.tagList?.forEach((tag: string) => {
       if (!translations.api.tags[tag]) {
         translations.api.tags[tag] = tag;
       }
     });
-  });
+
+    // Fetch and add comments
+    console.log(`💬 Fetching comments for: ${article.slug}`);
+    const comments = await fetchComments(article.slug);
+    if (comments.length > 0) {
+      translations.api.comments[article.slug] = {};
+      comments.forEach(comment => {
+        const commentKey = generateCommentKey(comment.body);
+        translations.api.comments[article.slug][commentKey] = comment.body;
+      });
+      console.log(`   ✅ Added ${comments.length} comment(s)`);
+    } else {
+      console.log(`   ℹ️  No comments`);
+    }
+  }
 
   return translations;
 }
@@ -86,11 +127,25 @@ function createTranslationFile(articles: Article[]) {
 // Main function
 async function main() {
   try {
-    console.log('Creating translation file from articles...');
-    console.log(`Processing ${articles.length} articles`);
+    console.log('\n' + '='.repeat(60));
+    console.log('🌍 API Content Extraction for Translation');
+    console.log('='.repeat(60));
+    console.log('\n⚠️  WARNING: This will fetch content from the API and');
+    console.log('   overwrite your existing en-US.json file!');
+    console.log('\n📋 This script will:');
+    console.log('   1. Fetch articles from RealWorld API');
+    console.log('   2. Fetch comments for each article');
+    console.log('   3. Generate translation keys');
+    console.log('   4. Create/update src/assets/i18n/en-US.json');
+    console.log('\n' + '='.repeat(60));
+    console.log('\n🚀 Starting extraction...\n');
 
-    // Create translation file
-    const translations = createTranslationFile(articles);
+    // Fetch articles from API
+    const articles = await fetchArticles();
+    console.log(`\n✅ Fetched ${articles.length} articles\n`);
+
+    // Create translation file with comments
+    const translations = await createTranslationFile(articles);
 
     // Save to file
     const outputDir = path.join(__dirname, '../src/assets/i18n');
@@ -101,17 +156,42 @@ async function main() {
       fs.mkdirSync(outputDir, { recursive: true });
     }
 
+    // Check if file exists and backup
+    if (fs.existsSync(outputPath)) {
+      const backupPath = path.join(outputDir, `en-US.backup.${Date.now()}.json`);
+      fs.copyFileSync(outputPath, backupPath);
+      console.log(`\n📦 Backed up existing file to: ${path.basename(backupPath)}`);
+    }
+
     fs.writeFileSync(outputPath, JSON.stringify(translations, null, 2));
 
-    console.log(`✅ Translation file created: ${outputPath}`);
-    console.log('\nNext steps:');
-    console.log('1. Review the generated translation file');
-    console.log('2. Upload to Crowdin: npm run crowdin:upload');
-    console.log('3. Once translated, download: npm run crowdin:download');
+    console.log('\n' + '='.repeat(60));
+    console.log('✅ Translation file created successfully!');
+    console.log('='.repeat(60));
+    console.log(`\n📄 File: ${outputPath}`);
+    console.log('\n📊 Extracted:');
+    console.log(`   • ${Object.keys(translations.api.articles).length} articles`);
+    console.log(`   • ${Object.keys(translations.api.tags).length} unique tags`);
+    console.log(`   • ${Object.keys(translations.api.comments).length} articles with comments`);
+
+    let totalComments = 0;
+    Object.values(translations.api.comments).forEach((comments: any) => {
+      totalComments += Object.keys(comments).length;
+    });
+    console.log(`   • ${totalComments} total comments`);
+
+    console.log('\n📝 Next steps:');
+    console.log('   1. Review the generated en-US.json file');
+    console.log('   2. Manually translate to pt-PT.json OR use Crowdin:');
+    console.log('      npm run crowdin:upload');
+    console.log('      (translate in Crowdin dashboard)');
+    console.log('      npm run crowdin:download');
+    console.log('\n' + '='.repeat(60) + '\n');
   } catch (error) {
-    console.error('Error:', error);
+    console.error('\n❌ Error extracting API content:', error);
     process.exit(1);
   }
 }
 
-main();
+// Execute main function
+void main();
